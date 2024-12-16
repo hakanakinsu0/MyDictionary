@@ -15,7 +15,6 @@ namespace Project.WinFormUI
     public partial class Form2 : Form
     {
         TermRepository _tr;
-        
         int? _categoryId;
 
         public Form2()
@@ -46,23 +45,21 @@ namespace Project.WinFormUI
 
         private void LoadTermsByCategory(int categoryId)
         {
-            // Seçili kategoriye ait kavramları getir
-            var terms = _tr.Where(x => x.CategoryId == categoryId).Select(x => new
+            // Seçili kategoriye ait kavramları getir. DataGridView'e bağla
+            DgvKavramlar.DataSource = _tr.Where(x => x.CategoryId == categoryId).Select(x => new
             {
                 Kategori = x.Category.Name,
                 Kavram = x.Name,
                 Açıklama = x.Description,
                 Durum = x.Status.ToString()
             }).ToList();
-
-            // DataGridView'e bağla
-            DgvKavramlar.DataSource = terms;
         }
 
         private void LoadAllTerms()
         {
             // Tüm kavramları getir ve DataGridView'e bağla
-            List<Term> allTerms = _tr.GetAll();
+            List<Term> allTerms = _tr.Where(x => x.Status != ENTITIES.Enums.DataStatus.Deleted).ToList();
+
             DgvKavramlar.DataSource = allTerms.Select(x => new
             {
                 Kategori = x.Category.Name,

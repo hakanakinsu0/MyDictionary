@@ -180,7 +180,7 @@
             this.BtnButunKavramlar.Name = "BtnButunKavramlar";
             this.BtnButunKavramlar.Size = new System.Drawing.Size(434, 23);
             this.BtnButunKavramlar.TabIndex = 14;
-            this.BtnButunKavramlar.Text = "Butun Kavramlari Getir";
+            this.BtnButunKavramlar.Text = "Guncel Butun Kavramlari Getir";
             this.BtnButunKavramlar.UseVisualStyleBackColor = true;
             this.BtnButunKavramlar.Click += new System.EventHandler(this.BtnButunKavramlar_Click);
             // 
