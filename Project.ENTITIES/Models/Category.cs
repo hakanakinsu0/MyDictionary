@@ -14,5 +14,15 @@ namespace Project.ENTITIES.Models
         //1 kavram 1 kategoride ve 1 kategoride birden fazla kavram olabilir.
 
         public virtual List<Term> Terms { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} => {Status}";
+        }
+
+        public string KategoriIsmi()
+        {
+            return $"{Name}";
+        }
     }
 }
